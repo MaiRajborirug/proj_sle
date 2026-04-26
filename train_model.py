@@ -1,38 +1,41 @@
+# %%
 """
-Run once to train and save the calibrated Random Forest used by app.py.
-Output: model.joblib
+Run once to train and save both calibrated SVMs used by app.py.
+Outputs: model_d5.joblib  (15 features, SVM + sigmoid, sens 0.955)
+         model_d9.joblib  (7 features,  SVM + isotonic, sens 0.905)
 """
 import pandas as pd
-import numpy as np
 import joblib
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
 from sklearn.calibration import CalibratedClassifierCV
-from sklearn.model_selection import train_test_split
 
-DROP_COLS = [
+BASE_DROP = [
     'Sex', 'Age',
     'Anti-dsDNA or Anti-Sm', 'Antiphospholipid',
     'Low C3 or C4', 'Low C4 and C3', 'ANA',
     'Renal class II or V LN', 'Renal class III or IV LN',
 ]
+D9_EXTRA_DROP = [
+    'Acute pericarditis', 'Pleural or pericardial effusion',
+    'Delirium', 'Psychosis', 'Seizure',
+    'Leukopenia', 'Thrombocytopenia', 'AIHA',
+]
 
-df = pd.read_csv('SLE_NotSLE.csv').drop(columns=DROP_COLS)
-X = df.iloc[:, :-1].values
-y = df.iloc[:, -1].values
+raw = pd.read_csv('SLE_NotSLE.csv')
 
-X_train, X_cal, y_train, y_cal = train_test_split(
-    X, y, test_size=0.2, stratify=y, random_state=42
-)
 
-rf = RandomForestClassifier(
-    bootstrap=True, max_depth=10, min_samples_leaf=1,
-    min_samples_split=2, n_estimators=300, random_state=42,
-)
-rf.fit(X_train, y_train)
+def train_and_save(df, method, filename):
+    X = df.iloc[:, :-1].values
+    y = df.iloc[:, -1].values
+    svm = SVC(C=10, gamma=1, kernel='rbf', probability=False, random_state=42)
+    model = CalibratedClassifierCV(svm, method=method, cv=5)
+    model.fit(X, y)
+    joblib.dump(model, filename)
+    print(f"Saved {filename}  |  features ({len(df.columns)-1}): {list(df.columns[:-1])}")
 
-calibrated = CalibratedClassifierCV(rf, method='isotonic', cv='prefit')
-calibrated.fit(X_cal, y_cal)
 
-joblib.dump(calibrated, 'model.joblib')
-print("Saved model.joblib")
-print(f"Features: {list(df.columns[:-1])}")
+df_d5 = raw.drop(columns=BASE_DROP)
+df_d9 = raw.drop(columns=BASE_DROP + D9_EXTRA_DROP)
+
+train_and_save(df_d5, method='sigmoid',  filename='model_d5.joblib')
+train_and_save(df_d9, method='isotonic', filename='model_d9.joblib')

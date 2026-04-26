@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import numpy as np
 import xgboost as xgb
@@ -25,6 +26,7 @@ df = df.drop(columns=[
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
 
+# %%
 # ── Constants ─────────────────────────────────────────────────────────────────
 FEATURE_ORDER = [
     'Fever', 'ACL', 'SCL or DL', 'Oral Ulcer', 'Alopecia',
