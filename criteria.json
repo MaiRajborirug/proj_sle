@@ -1,0 +1,137 @@
+[
+  {
+    "key": "Fever",
+    "domain": "Constitutional",
+    "score": 2,
+    "name_en": "Fever",
+    "name_th": "ไข้",
+    "description_en": "Temperature >38.3°C not explained by another cause.",
+    "description_th": "ไข้สูงกว่า 38.3°C โดยไม่มีสาเหตุอื่นอธิบาย"
+  },
+  {
+    "key": "ACL",
+    "domain": "Mucocutaneous",
+    "score": 6,
+    "name_en": "Acute Cutaneous Lupus (ACL)",
+    "name_th": "ผื่นลูปัสเฉียบพลัน",
+    "description_en": "Malar rash (butterfly rash) or other acute/subacute cutaneous lupus lesions.",
+    "description_th": "ผื่นแดงที่โหนกแก้มทั้งสองข้าง (Butterfly rash) หรือผื่นลูปัสชนิดเฉียบพลัน"
+  },
+  {
+    "key": "SCL or DL",
+    "domain": "Mucocutaneous",
+    "score": 4,
+    "name_en": "Subacute Cutaneous or Discoid Lupus (SCL/DL)",
+    "name_th": "ผื่นลูปัสกึ่งเฉียบพลัน / แบบ Discoid",
+    "description_en": "Annular or psoriasiform lesions (SCL) or scarring discoid plaques (DL).",
+    "description_th": "ผื่นแบบวงแหวนหรือคล้ายสะเก็ดเงิน หรือผื่น Discoid ที่ทิ้งรอยแผลเป็น"
+  },
+  {
+    "key": "Oral Ulcer",
+    "domain": "Mucocutaneous",
+    "score": 2,
+    "name_en": "Oral Ulcer",
+    "name_th": "แผลในปาก",
+    "description_en": "Painless oral or nasopharyngeal ulcers.",
+    "description_th": "แผลในช่องปากหรือในจมูก ที่ไม่เจ็บปวด"
+  },
+  {
+    "key": "Alopecia",
+    "domain": "Mucocutaneous",
+    "score": 2,
+    "name_en": "Non-scarring Alopecia",
+    "name_th": "ผมร่วง (ไม่มีแผลเป็น)",
+    "description_en": "Diffuse thinning or hair fragility with visible broken hairs.",
+    "description_th": "ผมร่วงแบบกระจายทั่วศีรษะ หรือเส้นผมเปราะหักง่าย"
+  },
+  {
+    "key": "Joint involvement",
+    "domain": "Musculoskeletal",
+    "score": 6,
+    "name_en": "Joint Involvement",
+    "name_th": "ข้ออักเสบ",
+    "description_en": "Synovitis in ≥2 joints with morning stiffness ≥30 min.",
+    "description_th": "ข้ออักเสบตั้งแต่ 2 ข้อขึ้นไป พร้อมอาการฝืดข้อตอนเช้า ≥30 นาที"
+  },
+  {
+    "key": "Acute pericarditis",
+    "domain": "Serosal",
+    "score": 6,
+    "name_en": "Acute Pericarditis",
+    "name_th": "เยื่อหุ้มหัวใจอักเสบเฉียบพลัน",
+    "description_en": "Pericardial pain with friction rub or ECG changes or new pericardial effusion.",
+    "description_th": "อาการเจ็บหน้าอกจากเยื่อหุ้มหัวใจอักเสบ ร่วมกับเสียง friction rub หรือการเปลี่ยนแปลงใน EKG"
+  },
+  {
+    "key": "Pleural or pericardial effusion",
+    "domain": "Serosal",
+    "score": 5,
+    "name_en": "Pleural / Pericardial Effusion",
+    "name_th": "น้ำในช่องเยื่อหุ้มปอดหรือเยื่อหุ้มหัวใจ",
+    "description_en": "Pleural or pericardial effusion detected by imaging or auscultation.",
+    "description_th": "พบน้ำในช่องเยื่อหุ้มปอดหรือเยื่อหุ้มหัวใจจากการตรวจด้วยภาพหรือการฟังเสียง"
+  },
+  {
+    "key": "Proteinuria",
+    "domain": "Renal",
+    "score": 4,
+    "name_en": "Proteinuria",
+    "name_th": "โปรตีนรั่วในปัสสาวะ",
+    "description_en": "Urine protein-to-creatinine ratio >0.5 mg/mg (or >500 mg/24h).",
+    "description_th": "อัตราส่วนโปรตีนต่อครีเอตินีนในปัสสาวะ >0.5 mg/mg หรือโปรตีน >500 mg/24 ชั่วโมง"
+  },
+  {
+    "key": "Delirium",
+    "domain": "Neuropsychiatric",
+    "score": 2,
+    "name_en": "Delirium",
+    "name_th": "ภาวะสับสนเฉียบพลัน",
+    "description_en": "Acute change in consciousness or cognition not explained by metabolic cause.",
+    "description_th": "ความสับสนทางจิตใจหรือสติสัมปชัญญะที่เกิดขึ้นเฉียบพลัน ไม่มีสาเหตุจากการเผาผลาญ"
+  },
+  {
+    "key": "Psychosis",
+    "domain": "Neuropsychiatric",
+    "score": 3,
+    "name_en": "Psychosis",
+    "name_th": "โรคจิต",
+    "description_en": "Hallucinations or delusions not related to substance use or other known disorder.",
+    "description_th": "อาการประสาทหลอนหรือความเชื่อผิดปกติ ที่ไม่ได้เกิดจากสารเสพติดหรือโรคจิตอื่น"
+  },
+  {
+    "key": "Seizure",
+    "domain": "Neuropsychiatric",
+    "score": 5,
+    "name_en": "Seizure",
+    "name_th": "ชัก",
+    "description_en": "Focal or generalized seizures not explained by metabolic disturbance.",
+    "description_th": "การชักแบบเฉพาะที่หรือทั้งตัว ที่ไม่ได้เกิดจากความผิดปกติของเกลือแร่"
+  },
+  {
+    "key": "Leukopenia",
+    "domain": "Hematologic",
+    "score": 3,
+    "name_en": "Leukopenia",
+    "name_th": "เม็ดเลือดขาวต่ำ",
+    "description_en": "WBC <4,000/mm³ at least once, not explained by other cause.",
+    "description_th": "เม็ดเลือดขาวต่ำกว่า 4,000/mm³ อย่างน้อยหนึ่งครั้ง ไม่มีสาเหตุอื่น"
+  },
+  {
+    "key": "Thrombocytopenia",
+    "domain": "Hematologic",
+    "score": 4,
+    "name_en": "Thrombocytopenia",
+    "name_th": "เกล็ดเลือดต่ำ",
+    "description_en": "Platelets <100,000/mm³ at least once, not explained by other cause.",
+    "description_th": "เกล็ดเลือดต่ำกว่า 100,000/mm³ อย่างน้อยหนึ่งครั้ง ไม่มีสาเหตุอื่น"
+  },
+  {
+    "key": "AIHA",
+    "domain": "Hematologic",
+    "score": 4,
+    "name_en": "Autoimmune Haemolytic Anaemia (AIHA)",
+    "name_th": "โลหิตจางจากภูมิคุ้มกันทำลายเม็ดเลือดแดง",
+    "description_en": "Evidence of haemolysis with positive direct Coombs test.",
+    "description_th": "มีภาวะเม็ดเลือดแดงแตกพร้อม direct Coombs test ให้ผลบวก"
+  }
+]
