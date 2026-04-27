@@ -1,5 +1,7 @@
 # proj_sle — SLE Screening Tool
 
+See https://projsle-en4e9d6kiwyvx2cpq4xpxs.streamlit.app/
+
 Predict Systemic Lupus Erythematosus (SLE) from 15 clinical features derived from the 2019 EULAR/ACR criteria (immunological markers excluded). Includes a benchmark evaluation script and a Streamlit web app for clinical screening.
 
 ---
