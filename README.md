@@ -48,13 +48,41 @@ streamlit run app.py
 
 ---
 
-## Deploy (Streamlit Community Cloud — free)
+## Deploy
+
+### Snowflake (Streamlit in Snowflake) — primary
+
+Run the following SQL in a Snowflake Worksheet:
+
+```sql
+-- 1. Connect GitHub repo
+CREATE OR REPLACE API INTEGRATION github_integration
+  API_PROVIDER = git_https_api
+  API_ALLOWED_PREFIXES = ('https://github.com/MaiRajborirug/')
+  ENABLED = TRUE;
+
+CREATE OR REPLACE GIT REPOSITORY proj_sle_repo
+  API_INTEGRATION = github_integration
+  ORIGIN = 'https://github.com/MaiRajborirug/proj_sle';
+
+ALTER GIT REPOSITORY proj_sle_repo FETCH;
+
+-- 2. Create Streamlit app
+CREATE OR REPLACE STREAMLIT sle_screening
+  FROM @proj_sle_repo/branches/master/
+  MAIN_FILE = '/app.py'
+  QUERY_WAREHOUSE = COMPUTE_WH;
+```
+
+To sync after a new push:
+```sql
+ALTER GIT REPOSITORY proj_sle_repo FETCH;
+```
+
+### Streamlit Community Cloud — alternative (free)
 
 1. Push this repo to GitHub
 2. Go to [share.streamlit.io](https://share.streamlit.io) → New app → select repo → `app.py`
-3. Set up [UptimeRobot](https://uptimerobot.com) (free) to ping the URL every 5 min to prevent cold-start sleep
-
-> **Note:** `model.joblib` is in `.gitignore`. Streamlit Cloud will run `train_model.py` on first deploy if you add it to a startup script, or you can commit the file directly if the dataset is not sensitive.
 
 ---
 
