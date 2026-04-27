@@ -1,3 +1,4 @@
+import base64
 import json
 import numpy as np
 import joblib
@@ -184,21 +185,27 @@ scored_criteria  = [c for c in criteria if not c.get("entry_criterion")]
 feature_order    = [c["key"] for c in scored_criteria]
 
 # ── GitHub link (fixed top-right) ────────────────────────────────────────────
+with open("icons/github.png", "rb") as _f:
+    _gh_icon = base64.b64encode(_f.read()).decode()
 st.markdown(
-    '<a href="https://github.com/MaiRajborirug/proj_sle" target="_blank" '
-    'style="position:fixed;bottom:20px;right:20px;z-index:9999;'
-    'background:#24292e;color:#fff;padding:6px 12px;border-radius:6px;'
-    'font-size:13px;font-weight:500;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.3);">⭐ GitHub</a>',
+    f'<a href="https://github.com/MaiRajborirug/proj_sle" target="_blank" '
+    f'style="position:fixed;bottom:20px;right:20px;z-index:9999;'
+    f'background:#24292e;color:#fff;padding:6px 12px;border-radius:6px;'
+    f'font-size:13px;font-weight:500;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.3);">'
+    f'<img src="data:image/png;base64,{_gh_icon}" style="height:16px;vertical-align:middle;margin-right:6px;"> GitHub</a>',
     unsafe_allow_html=True,
 )
 
 # ── Header ────────────────────────────────────────────────────────────────────
-_, logo_col, _ = st.columns([2, 6, 2])
+_, logo_col, qr_col, _ = st.columns([2, 5, 2, 1])
 with logo_col:
     st.image("icons/md_kmitl.png", use_container_width=True)
+with qr_col:
+    st.image("icons/qr.png", use_container_width=True)
 
 st.title("SLE Screening Tool  *(Beta Ver 1.0.0)*")
 st.caption("Based on 2019 EULAR/ACR criteria · **Not a diagnosis** — for clinical decision support only.")
+st.caption("version 1.2")
 
 # ── ANA entry criterion (full EULAR only) ─────────────────────────────────────
 ana_checked = False
