@@ -36,7 +36,7 @@ S = {
         "disclaimer_suffix":"This tool does not replace clinical judgement or formal diagnostic workup.",
     },
     "th": {
-        "title":            "เครื่องมือคัดกรองโรค SLE",
+        "title":            "ชุดคัดกรองโรคพุ่มพวง",
         "screening_level":  "ระดับการคัดกรอง",
         "tests_required":   "การตรวจที่ต้องการ",
         "validated_sens":   "ความไวที่ผ่านการตรวจสอบ",
@@ -197,13 +197,13 @@ st.markdown(
 )
 
 # ── Header ────────────────────────────────────────────────────────────────────
-_, logo_col, qr_col, _ = st.columns([2, 5, 2, 1])
+_, logo_col, qr_col, _ = st.columns([2, 5, 1, 2])
 with logo_col:
     st.image("icons/md_kmitl.png", use_container_width=True)
 with qr_col:
     st.image("icons/qr.png", use_container_width=True)
 
-st.title("SLE Screening Tool  *(Beta Ver 1.0.0)*")
+st.title(t["title"])
 st.caption("Based on 2019 EULAR/ACR criteria · **Not a diagnosis** — for clinical decision support only.")
 st.caption("version 1.2")
 
